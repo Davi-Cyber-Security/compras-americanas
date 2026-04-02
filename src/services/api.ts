@@ -17,13 +17,13 @@ async function request(endpoint: string, options: RequestInit = {}) {
     headers,
   });
 
-  if (response.status === 401) {
+  const data = await response.json();
+
+  if (response.status === 401 && token) {
     localStorage.removeItem('token');
     window.location.href = '/login';
     throw new Error('Sessão expirada. Faça login novamente.');
   }
-
-  const data = await response.json();
 
   if (!response.ok) {
     throw new Error(data.error || 'Erro na requisição.');
