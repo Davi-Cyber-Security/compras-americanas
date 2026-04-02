@@ -1,0 +1,140 @@
+.history-page {
+  max-width: 700px;
+}
+
+.history-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 40vh;
+  color: var(--text-secondary);
+}
+
+.history-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tree-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tree-toggle:hover {
+  background: var(--primary-bg);
+}
+
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-secondary);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.tree-toggle.open .toggle-icon {
+  transform: rotate(90deg);
+}
+
+.year-toggle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+}
+
+.month-toggle {
+  font-size: 1rem;
+  font-weight: 500;
+  padding-left: 24px;
+}
+
+.day-toggle {
+  font-size: 0.95rem;
+  padding-left: 40px;
+  color: var(--text-secondary);
+}
+
+.tree-children {
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 2px solid var(--border-light);
+}
+
+.day-entries {
+  margin-left: 56px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-entry {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+.entry-email {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.entry-product {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.entry-type {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.entry-time {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .history-entry {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .day-entries {
+    margin-left: 24px;
+  }
+
+  .month-toggle {
+    padding-left: 16px;
+  }
+
+  .day-toggle {
+    padding-left: 28px;
+  }
+}

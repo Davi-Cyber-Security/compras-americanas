@@ -1,0 +1,135 @@
+.home-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.hero-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 14px 36px;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.hero-cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.hero-cta-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--primary);
+  padding: 14px 36px;
+  border-radius: var(--radius);
+  border: 2px solid var(--primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.hero-cta-secondary:hover {
+  background: var(--primary-bg);
+  text-decoration: none;
+}
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--bg-white);
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.feature-svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary);
+}
+
+.feature-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .home-page {
+    padding: 32px 16px;
+  }
+}
