@@ -1,0 +1,100 @@
+.recover-page {
+  display: flex;
+  min-height: calc(100vh - var(--header-height));
+  overflow: hidden;
+}
+
+.recover-image-side {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  min-height: 100%;
+}
+
+.recover-illustration {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
+.recover-form-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: var(--bg);
+}
+
+.recover-form-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.recover-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.code-input {
+  font-size: 1.5rem !important;
+  letter-spacing: 8px !important;
+  text-align: center;
+  font-weight: 700;
+}
+
+.password-mismatch {
+  color: var(--danger);
+  font-size: 0.82rem;
+  margin: -8px 0 8px;
+}
+
+.password-match {
+  color: var(--secondary);
+  font-size: 0.82rem;
+  margin: -8px 0 8px;
+}
+
+.recover-done {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.recover-done-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--secondary);
+  color: white;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+@media (max-width: 768px) {
+  .recover-page {
+    flex-direction: column;
+  }
+
+  .recover-image-side {
+    padding: 24px;
+    min-height: 220px;
+  }
+
+  .recover-illustration {
+    max-width: 200px;
+  }
+
+  .recover-form-side {
+    padding: 24px 20px;
+  }
+}

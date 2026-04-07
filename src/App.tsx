@@ -5,6 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import RecoverPassword from './pages/RecoverPassword';
 import Dashboard from './pages/Dashboard';
 import Voting from './pages/Voting';
 import ProductRegister from './pages/ProductRegister';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastrar" element={<Register />} />
+            <Route path="/recuperar-senha" element={<RecoverPassword />} />
             <Route
               path="/app"
               element={

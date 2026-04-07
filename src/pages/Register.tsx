@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import PasswordInput from '../components/PasswordInput';
 import registerImg from '../assets/registrar login.avif';
 import '../styles/auth.css';
 
@@ -10,7 +11,6 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showRecovery, setShowRecovery] = useState(false);
   const { register, user } = useAuth();
   const navigate = useNavigate();
 
@@ -30,9 +30,7 @@ export default function Register() {
       await register(email, password);
       navigate('/app/votar');
     } catch (err: unknown) {
-      setError(
-        err instanceof Error ? err.message : 'Erro ao criar conta.'
-      );
+      setError(err instanceof Error ? err.message : 'Erro ao criar conta.');
     } finally {
       setLoading(false);
     }
@@ -41,12 +39,7 @@ export default function Register() {
   return (
     <div className="auth-page">
       <div className="auth-container">
-        <img
-          src={registerImg}
-          alt="Cadastrar"
-          className="auth-illustration"
-        />
-
+        <img src={registerImg} alt="Cadastrar" className="auth-illustration" />
         <h2 className="auth-title">Criar Conta</h2>
 
         {error && <div className="auth-error">{error}</div>}
@@ -64,31 +57,32 @@ export default function Register() {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Senha</label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Mínimo 6 caracteres"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={6}
-            />
-          </div>
+          <PasswordInput
+            id="password"
+            label="Senha"
+            placeholder="Mínimo 6 caracteres"
+            value={password}
+            onChange={setPassword}
+            required
+            minLength={6}
+          />
 
-          <div className="form-group">
-            <label htmlFor="confirmPassword">Confirmar senha</label>
-            <input
-              id="confirmPassword"
-              type="password"
-              placeholder="Repita a senha"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              minLength={6}
-            />
-          </div>
+          <PasswordInput
+            id="confirmPassword"
+            label="Confirmar senha"
+            placeholder="Repita a senha"
+            value={confirmPassword}
+            onChange={setConfirmPassword}
+            required
+            minLength={6}
+          />
+
+          {password && confirmPassword && password !== confirmPassword && (
+            <p className="password-mismatch">As senhas não coincidem</p>
+          )}
+          {password && confirmPassword && password === confirmPassword && (
+            <p className="password-match">As senhas coincidem ✓</p>
+          )}
 
           <button type="submit" className="auth-btn" disabled={loading}>
             {loading ? 'Cadastrando...' : 'Cadastrar'}
@@ -97,20 +91,8 @@ export default function Register() {
 
         <div className="auth-links">
           <Link to="/login">Já tem conta? Faça login</Link>
-          <button
-            className="link-btn"
-            onClick={() => setShowRecovery(true)}
-          >
-            Recuperar senha
-          </button>
+          <Link to="/recuperar-senha" className="link-btn">Recuperar senha</Link>
         </div>
-
-        {showRecovery && (
-          <div className="recovery-toast">
-            <p>Em breve</p>
-            <button onClick={() => setShowRecovery(false)}>Fechar</button>
-          </div>
-        )}
       </div>
     </div>
   );

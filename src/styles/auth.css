@@ -94,6 +94,64 @@
   color: var(--primary);
 }
 
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  padding-right: 44px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.eye-btn:hover {
+  color: var(--primary);
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.password-mismatch {
+  color: var(--danger);
+  font-size: 0.82rem;
+  margin: -8px 0 8px;
+}
+
+.password-match {
+  color: var(--secondary);
+  font-size: 0.82rem;
+  margin: -8px 0 8px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  color: var(--primary);
+}
+
 .recovery-toast {
   margin-top: 16px;
   background: var(--warning);

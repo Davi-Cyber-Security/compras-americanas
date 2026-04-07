@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import PasswordInput from '../components/PasswordInput';
 import loginImg from '../assets/ilustrar-login.jpg';
 import '../styles/auth.css';
 
@@ -9,7 +10,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showRecovery, setShowRecovery] = useState(false);
   const { login, user } = useAuth();
   const navigate = useNavigate();
 
@@ -33,7 +33,6 @@ export default function Login() {
     <div className="auth-page">
       <div className="auth-container">
         <img src={loginImg} alt="Login" className="auth-illustration" />
-
         <h2 className="auth-title">Entrar</h2>
 
         {error && <div className="auth-error">{error}</div>}
@@ -51,18 +50,15 @@ export default function Login() {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Senha</label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Sua senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={6}
-            />
-          </div>
+          <PasswordInput
+            id="password"
+            label="Senha"
+            placeholder="Sua senha"
+            value={password}
+            onChange={setPassword}
+            required
+            minLength={6}
+          />
 
           <button type="submit" className="auth-btn" disabled={loading}>
             {loading ? 'Entrando...' : 'Entrar'}
@@ -71,20 +67,8 @@ export default function Login() {
 
         <div className="auth-links">
           <Link to="/cadastrar">Não tem conta? Cadastre-se</Link>
-          <button
-            className="link-btn"
-            onClick={() => setShowRecovery(true)}
-          >
-            Recuperar senha
-          </button>
+          <Link to="/recuperar-senha" className="link-btn">Recuperar senha</Link>
         </div>
-
-        {showRecovery && (
-          <div className="recovery-toast">
-            <p>Em breve</p>
-            <button onClick={() => setShowRecovery(false)}>Fechar</button>
-          </div>
-        )}
       </div>
     </div>
   );
