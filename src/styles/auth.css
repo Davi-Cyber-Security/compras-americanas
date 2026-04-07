@@ -94,6 +94,52 @@
   color: var(--primary);
 }
 
+.register-steps {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.step-dot.active {
+  background: var(--primary);
+  color: white;
+}
+
+.step-dot.done {
+  background: var(--secondary);
+  color: white;
+}
+
+.step-hint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.code-input {
+  font-size: 1.5rem !important;
+  letter-spacing: 8px !important;
+  text-align: center;
+  font-weight: 700;
+}
+
 .password-wrapper {
   position: relative;
   display: flex;
