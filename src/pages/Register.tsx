@@ -178,7 +178,6 @@ export default function Register() {
 
         <div className="auth-links">
           <Link to="/login">Já tem conta? Faça login</Link>
-          <Link to="/recuperar-senha" className="link-btn">Recuperar senha</Link>
         </div>
       </div>
     </div>
